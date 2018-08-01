@@ -1,0 +1,64 @@
+body, html {
+	margin: 0;
+	height: 100vh;
+	overflow-y: hidden;
+}
+
+img.av {
+	width: 40vh;
+	height: 40vh;
+	margin-top: 10vh;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0px 16px 37px 0px rgba(0,0,0,0.23);
+}
+
+div.links {
+	width: 40vh;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5vh;
+	margin-bottom: 3vh;
+	font-size: 3vh;
+	font-family: 'Eczar', serif;
+	line-height: 3vh;
+	box-sizing: border-box;
+	padding-left: 30px;
+	transition: 300ms;
+}
+
+div.links span.item {
+	display: block;
+	margin-top: 10px;
+	margin-left: 30px;
+}
+
+div.links span.item:before {
+	content: '> ';
+}
+
+.links.showtag {
+	padding-left: 0;
+}
+
+.discord {
+	display: inline-block !important;
+	position: relative;
+}
+
+.discordtag {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 13vh;
+	color: grey;
+	font-style: italic;
+	line-height: 3vh;
+	font-size: 2vh;
+}
+
+a {
+	color: #B7950B;
+	text-decoration: none;
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<title>initializing andrew.jpg... page loaded!</title>
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
+	<link rel="icon" href="beepboop.jpg" type="image/png">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<img class="av" src="beepboop.jpg">
+
+	<div class="links">
+		andrew.jpg
+		<span class="item"><a href="http://twitter.com/andrewdotjpg">twitter</a></span>
+		<span class="item"><a href="http://tcrf.net/User:RampantLeaf">tcrf.net</a></span>
+		<span class="discord item"><a href="javascript:void(0);">discord</a> <span class="discordtag">RampantLeaf#2167</span></span>
+		<span class="item"><a href="https://community.wikia.com/wiki/User:Oswaldiscool">wikia</a></span> 
+	</div>
+
+	<script>
+		$( ".discord" ).click(function() {
+			// $( ".discordtag" ).toggleClass( "show" );
+			$( ".discordtag" ).fadeToggle( "fast" ).delay(300);
+			$( ".links" ).toggleClass( "showtag" );
+		});
+	</script>
+</body>
+</html>
