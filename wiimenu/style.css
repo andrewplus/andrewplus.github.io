@@ -1,0 +1,214 @@
+body, html {
+	height: 100%;
+	margin: 0;
+	background: url(bg-pattern.png);
+	background-color: lightgrey;
+	cursor: url(cursor.png), auto;
+	overflow-y: hidden;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.top-section {
+	height: calc(100% - 219px);
+	padding: 80px;
+	padding-top: 2vh;
+	padding-bottom: 0;
+	box-sizing: border-box;
+}
+
+@media only screen and (min-height: 780px)  {
+    .top-section {
+        padding-top: 3em !important;
+    }
+}
+
+.pages {
+	width: auto;
+	height: 100%;
+	overflow-x: auto;
+}
+
+.page {
+	display: inline-block;
+}
+
+.bottom-section {
+	height: 219px;
+	background: #d2d6db;
+	background-image: url(bottom-bg.png);
+}
+
+.col {
+	width: 24%;
+	height: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.col.first {
+	margin-left: 19px;
+}
+
+.channel-icon {
+	background-image: url(channel-spritesheet.png);
+	display: block;
+	background-size: calc(100% * 3) 100%;
+	position: relative;
+
+	width: 20.2vw;
+	height: 11.1vw;
+	margin-top: 2vh;
+}
+
+.channel-icon:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20.2vw;
+	height: 11.1vw;
+	content: '';
+	background-image: url(channel-wiilogo.png);
+	background-size: 100% 100%;
+}
+
+.channel-icon:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20.2vw;
+	height: 11.1vw;
+	content: '';
+	background-image: url(channel-border.png);
+	background-size: 100% 100%;
+}
+
+.bottom-title {
+	background-image: url(bottom-title.png);
+	width: 1200px;
+	height: 220px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.left-button {
+	position: absolute;
+	bottom: 42px;
+	left: 0;
+	background-image: url(left-button.png);
+	width: 185px;
+	height: 135px;
+	background-size: 100% 100%;
+}
+
+.wii-button {
+	background-image: url(wii-button.png);
+	width: 100px;
+	height: 105px;
+	position: absolute;
+	bottom: 60px;
+	left: 60px;
+	background-size: 100% 100%;
+}
+
+.right-button {
+	position: absolute;
+	bottom: 42px;
+	right: 0;
+	background-image: url(right-button.png);
+	width: 185px;
+	height: 135px;
+	background-size: 100% 100%;
+}
+
+.mail-button {
+	background-image: url(mail-button.png);
+	width: 100px;
+	height: 105px;
+	position: absolute;
+	bottom: 60px;
+	right: 60px;
+	background-size: 100% 100%;
+}
+
+.corner-button {
+	transition: 300ms;
+}
+
+.corner-button:hover {
+	transform: scale(1.1);
+}
+
+.date {
+	position: absolute;
+	color: #84868a;
+	font-family: 'Asap', sans-serif;
+	bottom: 32px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	font-size: 40px;
+	letter-spacing: -1px;
+}
+
+
+
+.screen-message {
+	display: none;
+	position: absolute;
+	background: black;
+	color: white;
+	font-family: sans-serif;
+	top: 20px;
+	left: 0;
+}
+
+@media only screen and (max-height: 718px) , screen and (max-width: 1220px) , screen and (width: 1280px) and (height: 1024px) {
+    .screen-message {
+        display: block !important;
+    }
+}
+
+
+
+
+
+
+/* animation part of the file no touchy if ur not an animation thinger */
+
+
+.channel-icon {
+    
+    -webkit-animation: play 0.3s steps(3) infinite;
+       -moz-animation: play 0.3s steps(3) infinite;
+        -ms-animation: play 0.3s steps(3) infinite;
+         -o-animation: play 0.3s steps(3) infinite;
+            animation: play 0.3s steps(3) infinite;
+}
+
+@-webkit-keyframes play {
+   from { background-position-x:    0px; }
+     to { background-position-x: calc(100% * 3 - 1px); }
+}
+
+@-moz-keyframes play {
+   from { background-position-x:    0px; }
+     to { background-position-x: calc(100% * 3 - 1px); }
+}
+
+@-ms-keyframes play {
+   from { background-position-x:    0px; }
+     to { background-position-x: calc(100% * 3 - 1px); }
+}
+
+@-o-keyframes play {
+   from { background-position-x:    0px; }
+     to { background-position-x: calc(100% * 3 - 1px); }
+}
+
+@keyframes play {
+   from { background-position-x:    0px; }
+     to { background-position-x: calc(100% * 3 - 1px); }
+}

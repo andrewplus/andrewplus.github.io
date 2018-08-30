@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Wii Menu</title>
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Asap:500" rel="stylesheet">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			// hover audio
+			function hover(){
+				var audio = document.getElementById("hover");
+				audio.play();
+			}
+
+			// date
+			const monthNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+			const d = new Date();
+
+			weekday = monthNames[d.getDay()];
+			day = d.getDate();
+			month = d.getMonth() + 1;
+			date = weekday + " " + month + "/" + day;
+
+			$( document ).ready(function() {
+				$( ".date" ).append( date );
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="top-section">
+			<div class="col first">
+				<div class="channel-icon"></div>
+				<div class="channel-icon"></div>
+				<div class="channel-icon"></div>
+			</div>
+
+			<div class="col">
+				<div class="channel-icon"></div>
+				<div class="channel-icon"></div>
+				<div class="channel-icon"></div>
+			</div>
+
+			<div class="col">
+				<div class="channel-icon"></div>
+				<div class="channel-icon"></div>
+				<div class="channel-icon"></div>
+			</div>
+
+			<div class="col">
+				<div class="channel-icon"></div>
+				<div class="channel-icon"></div>
+				<div class="channel-icon"></div>
+			</div>
+		</div>
+
+		<div class="bottom-section">
+			<div class="bottom-title"></div>
+
+			<div class="left-button"></div>
+			<div class="wii-button corner-button" onmouseover="hover()"></div>
+
+			<div class="date"></div>
+
+			<div class="right-button"></div>
+			<div class="mail-button corner-button" onmouseover="hover()"></div>
+		</div>
+
+		<div class="screen-message">
+			This website doesn't support your current display resolution. Click here for compatibility details.
+		</div>
+
+		<div class="sfx">
+			<iframe src="bgmusic.html" allow="autoplay" style="display:none"></iframe>
+			<audio id="hover" src="button-hover.mp3"></audio>
+		</div>
+	</body>
+</html>
