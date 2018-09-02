@@ -8,74 +8,78 @@
 		<link href="https://fonts.googleapis.com/css?family=Asap:500" rel="stylesheet">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script>
-			// hover audio
-			function hover(){
-				var audio = document.getElementById("hover");
-				audio.play();
-			}
-
-			// date
-			const monthNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-			const d = new Date();
-
-			weekday = monthNames[d.getDay()];
-			day = d.getDate();
-			month = d.getMonth() + 1;
-			date = weekday + " " + month + "/" + day;
-
-			$( document ).ready(function() {
-				$( ".date" ).append( date );
-			});
-		</script>
+		<script src="main.js"></script>
 	</head>
 
 	<body>
-		<div class="top-section">
-			<div class="col first">
-				<div class="channel-icon"></div>
-				<div class="channel-icon"></div>
-				<div class="channel-icon"></div>
+		<div class="main-menu">
+			<div class="top-section">
+				<div class="col first">
+					<div class="channel-icon blank"><div class="hover" id="1"></div></div>
+					<div class="channel-icon occupied"><img src="miichannel.jpg"><div class="hover" id="2" onmouseover="hover()" onclick="zip()" data-img="miichannel.jpg"></div></div>
+					<div class="channel-icon blank"><div class="hover" id="3"></div></div>
+				</div>
+
+				<div class="col">
+					<div class="channel-icon blank"><div class="hover" id="4"></div></div>
+					<div class="channel-icon blank"><div class="hover" id="5"></div></div>
+					<div class="channel-icon occupied"><img src="hot.jpg"><div class="hover" id="6" onmouseover="hover()" onclick="zip()" data-img="wiishop.jpg"></div></div>
+				</div>
+
+				<div class="col">
+					<div class="channel-icon blank"><div class="hover" id="7"></div></div>
+					<div class="channel-icon blank"><div class="hover" id="8"></div></div>
+					<div class="channel-icon blank"><div class="hover" id="9"></div></div>
+				</div>
+
+				<div class="col">
+					<div class="channel-icon blank"><div class="hover" id="10"></div></div>
+					<div class="channel-icon occupied"><img src="miichannel.jpg"><div class="hover" id="11" onmouseover="hover()" onclick="zip()" data-img="miichannel.jpg"></div></div>
+					<div class="channel-icon blank"><div class="hover" id="12"></div></div>
+				</div>
 			</div>
 
-			<div class="col">
-				<div class="channel-icon"></div>
-				<div class="channel-icon"></div>
-				<div class="channel-icon"></div>
-			</div>
+			<div class="bottom-section">
+				<div class="bottom-title"></div>
 
-			<div class="col">
-				<div class="channel-icon"></div>
-				<div class="channel-icon"></div>
-				<div class="channel-icon"></div>
-			</div>
+				<div class="left-button"></div>
+				<div class="wii-button corner-button" onmouseover="hover()"></div>
 
-			<div class="col">
-				<div class="channel-icon"></div>
-				<div class="channel-icon"></div>
-				<div class="channel-icon"></div>
+				<div class="date"></div>
+
+				<div class="right-button"></div>
+				<div class="mail-button corner-button" onmouseover="hover()"></div>
 			</div>
 		</div>
 
-		<div class="bottom-section">
-			<div class="bottom-title"></div>
+		<div class="splash-screen">
 
-			<div class="left-button"></div>
-			<div class="wii-button corner-button" onmouseover="hover()"></div>
-
-			<div class="date"></div>
-
-			<div class="right-button"></div>
-			<div class="mail-button corner-button" onmouseover="hover()"></div>
 		</div>
+		
+		<div class="splash-bar">
+			<div class="splash-buttons">
+				<a href="javascript:void(0)" class="btn menu-btn" onmouseover="hover()" onclick="back()">Wii Menu</a>
+				<a href="javascript:void(0)" class="btn" onmouseover="hover()" onclick="select()">Start</a>
+			</div>
+		</div>
+
+		<div class="border-topleft border"></div>
+		<div class="border-topright border"></div>
+		<div class="border-bottomleft border"></div>
+		<div class="border-bottomright border"></div>
 
 		<div class="screen-message">
-			This website doesn't support your current display resolution. Click here for compatibility details.
+			This website is only intended for widescreen desktop displays. Click here for compatiblity details.
 		</div>
 
 		<div class="sfx">
-			<iframe src="bgmusic.html" allow="autoplay" style="display:none"></iframe>
+			<!-- <iframe src="bgmusic.html" allow="autoplay" style="display:none" id="music"></iframe> -->
+			<audio src="startup.mp3" controls autoplay></audio>
+			<audio id="bg-music" src="bg-music.mp3" loop controls autoplay></audio>
 			<audio id="hover" src="button-hover.mp3"></audio>
+			<audio id="select" src="button-select.mp3"></audio>
+			<audio id="zip" src="zip.mp3"></audio>
+			<audio id="back" src="back.mp3"></audio>
 		</div>
 	</body>
 </html>
