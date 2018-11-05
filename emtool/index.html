@@ -4,29 +4,68 @@
 		<title>Epic Mickey Wii Patch Generator</title>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="zipjs/dist/jszip.min.js"></script>
+		<script src="filesaver/dist/FileSaver.min.js"></script>
 		<script>
 			$( document ).ready(function() {
-				$( "#submit" ).click(function() { 
+				function makeVariables() {
 					level = $( "select" ).val();
 					abilities = $( ".abilities").prop('checked');
 					strap = $( ".strap" ).prop('checked');
-					
-					if (strap = true) {
-						strap = false;
-					} else {
-						strap = true;
-					}
 
 					cmdline = level + " -csg -binary -Set UseHostComm=false -Set UseHostCommScreenshots=false -Set PlayerDisplayLocation=false -wiiprofilermem 0 -nexusip 0.0.0.0 -Set PauseMenuEnabled=true -Set StartInMainMenu=false -Set WiiWristStrapShow=" + strap + " -Set DisableAudio=false -Set RenderUseBatching=true -Set DisplayBuildVersionHUD=false -Set DisplayDebugTextHUD=false -Set ColorMipmapLevels=false -Set EnableRenderProfiling=false -Set UseDebugLineBatcher=false -Set DisableIGC=false -Set HUDDisplaySafeFrame=false -Set bShowHUD=true -Set PlayerEnableAllAbilities=" + abilities + " -Set SphericalHarmonicLightingDebug=false -Set WiiRemoteSleepTime=5 -Set DisplayDebugParticleText=false -Set UseSmallerDebugText=false -Set OutOfMemoryBoxOfDoom=false -Set DisplayAIMemoryInfo=false -Set MaximizeJigsawAIMemory=false -Set ApprenticeSkip=false -Set ShowDevLevelLoad=false -Set AudioAllowSpillover=false -Set GodModeOnPlayer=false";
+				}
+
+				$( "#showcmdline" ).click(function() { 
+					makeVariables();
 
 					$( ".output" ).html( cmdline );
 				});
+
+				$( "#file" ).click(function() { 
+
+					makeVariables();
+
+					var zip = new JSZip();
+
+					zip.file("empatch/cmdline.txt", cmdline);
+					zip.file("apps/riivolution/levelpatch.xml", "<wiidisc version=\"1\"> <id game=\"SEM\" /> <options> <section name=\"Custom Level Patch\"> <option name=\"Level Patch\" id=\"levelpatch\" default=\"1\"> <choice name=\"Enabled\"><patch id=\"levelpatch\"/></choice> </option> </section> </options> <!-- MISCELLANEOUS PATCHES --> <patch id=\"levelpatch\"> <folder external=\"/empatch\" disc=\"/\" /> </patch> </wiidisc>");
+
+					var promise = null;
+					if (JSZip.support.uint8array) {
+						promise = zip.generateAsync({type : "uint8array"});
+					} else {
+					 	promise = zip.generateAsync({type : "string"});
+					}
+
+					zip.generateAsync({type:"blob"}).then(function (blob) {
+						saveAs(blob, "emlevelpatch.zip");
+					}, function (err) {
+						jQuery("#blob").text(err);
+					});
+				});
 			});
 		</script>
+
+		<style>
+			.help {
+				color:white!important;background:grey;padding:12px;display:block;text-decoration:none;
+			}
+
+			.help:hover {
+				opacity: 0.9;
+			}
+		</style>
 	</head>
 
-	<body>
+	<body style="max-width:500px;">
 		<h1>Epic Mickey Wii Patch Generator</h1>
+		<p>This generator can create a custom cmdline.txt file for use on a softmodded Wii. The file includes launch properties for Epic Mickey such as the boot level and various other settings. Choose your settings and click "Download Riivolution Patch" to download the Riivolution files, or click "View cmdline.txt" to view the generated cmdline file. If you need help, click <a href="help.html">here</a>.</p>
+		<p><b>NOTE: </b>Though the patch is relatively harmless, the author is not responsible for any damage to personal property or save files as a result of incorrectly using this tool or any of the documentation on this site.</p>
+
+		<a href="help.html" class="help" align="center">Need help? Click here for guide and FAQ.</a>
+
+		<hr><br>
 
 		<form action="javascript:void(0)">
 			Level:
@@ -217,13 +256,17 @@
 			<br><br>
 
 			<input type="checkbox" class="abilities"> Enable all abilities (gives Mickey the brush, spin move, and 5 of each sketch) <br>
-			<input type="checkbox" class="strap"> Skip wrist strap screen
+			<input type="checkbox" class="strap" checked> Show wrist strap screen (uncheck box to bypass)
 
-			<br><br><input type="submit" value="Create files" id="submit"> <br><br>
+			<br><br><button id="file">Download Riivolution Patch</button> <button id="showcmdline">View cmdline.txt</button> <br><br>
 		</form>
 
-		<div class="output" style="background:lightgrey;max-width:500px;">
+		<p><b>cmdline.txt:</b></p>
+		<code class="output" style="background:lightgrey;display: block;">
 			&nbsp;
-		</div>
+		</code>
+
+		<hr>
+		<p>&copy;2018 <a href="/" target="_blank">andrew.plus</a>. This project uses <a href="https://github.com/Stuk/jszip" target="_blank">JSZip</a> (<a href="https://github.com/Stuk/jszip/blob/master/LICENSE.markdown" target="_blank">license</a>) and <a href="https://github.com/eligrey/FileSaver.js/" target="_blank">FileSaver</a> (<a href="https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md" target="_blank">license</a>). </p>
 	</body>
 </html>
