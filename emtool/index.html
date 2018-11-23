@@ -1,3 +1,12 @@
+<!--
+// Sloppy cmdline.txt file creation for Epic Mickey. Can create the file and a Riivolution ZIP file for it. The JS is pretty hardwired to the website, but it's not that complex. 
+// Created by andrew.plus using the following:
+// jQuery: https://jquery.com/
+// jszip: https://github.com/Stuk/jszip
+// FileSaver: https://github.com/eligrey/FileSaver.js
+
+// http://andrew.plus
+-->
 <!doctype html>
 <html>
 	<head>
@@ -6,46 +15,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="zipjs/dist/jszip.min.js"></script>
 		<script src="filesaver/dist/FileSaver.min.js"></script>
-		<script>
-			$( document ).ready(function() {
-				function makeVariables() {
-					level = $( "select" ).val();
-					abilities = $( ".abilities").prop('checked');
-					strap = $( ".strap" ).prop('checked');
-
-					cmdline = level + " -csg -binary -Set UseHostComm=false -Set UseHostCommScreenshots=false -Set PlayerDisplayLocation=false -wiiprofilermem 0 -nexusip 0.0.0.0 -Set PauseMenuEnabled=true -Set StartInMainMenu=false -Set WiiWristStrapShow=" + strap + " -Set DisableAudio=false -Set RenderUseBatching=true -Set DisplayBuildVersionHUD=false -Set DisplayDebugTextHUD=false -Set ColorMipmapLevels=false -Set EnableRenderProfiling=false -Set UseDebugLineBatcher=false -Set DisableIGC=false -Set HUDDisplaySafeFrame=false -Set bShowHUD=true -Set PlayerEnableAllAbilities=" + abilities + " -Set SphericalHarmonicLightingDebug=false -Set WiiRemoteSleepTime=5 -Set DisplayDebugParticleText=false -Set UseSmallerDebugText=false -Set OutOfMemoryBoxOfDoom=false -Set DisplayAIMemoryInfo=false -Set MaximizeJigsawAIMemory=false -Set ApprenticeSkip=false -Set ShowDevLevelLoad=false -Set AudioAllowSpillover=false -Set GodModeOnPlayer=false";
-				}
-
-				$( "#showcmdline" ).click(function() { 
-					makeVariables();
-
-					$( ".output" ).html( cmdline );
-				});
-
-				$( "#file" ).click(function() { 
-
-					makeVariables();
-
-					var zip = new JSZip();
-
-					zip.file("empatch/cmdline.txt", cmdline);
-					zip.file("apps/riivolution/levelpatch.xml", "<wiidisc version=\"1\"> <id game=\"SEM\" /> <options> <section name=\"Custom Level Patch\"> <option name=\"Level Patch\" id=\"levelpatch\" default=\"1\"> <choice name=\"Enabled\"><patch id=\"levelpatch\"/></choice> </option> </section> </options> <!-- MISCELLANEOUS PATCHES --> <patch id=\"levelpatch\"> <folder external=\"/empatch\" disc=\"/\" /> </patch> </wiidisc>");
-
-					var promise = null;
-					if (JSZip.support.uint8array) {
-						promise = zip.generateAsync({type : "uint8array"});
-					} else {
-					 	promise = zip.generateAsync({type : "string"});
-					}
-
-					zip.generateAsync({type:"blob"}).then(function (blob) {
-						saveAs(blob, "emlevelpatch.zip");
-					}, function (err) {
-						jQuery("#blob").text(err);
-					});
-				});
-			});
-		</script>
+		<script src="cmdline-generator.js"></script>
 
 		<style>
 			.help {
@@ -258,7 +228,7 @@
 			<input type="checkbox" class="abilities"> Enable all abilities (gives Mickey the brush, spin move, and 5 of each sketch) <br>
 			<input type="checkbox" class="strap" checked> Show wrist strap screen (uncheck box to bypass)
 
-			<br><br><button id="file">Download Riivolution Patch</button> <button id="showcmdline">View cmdline.txt</button> <br><br>
+			<br><br><button id="file">Download Riivolution Patch (~2KB)</button> <button id="showcmdline">View cmdline.txt</button> <br><br>
 		</form>
 
 		<p><b>cmdline.txt:</b></p>
@@ -268,5 +238,6 @@
 
 		<hr>
 		<p>&copy;2018 <a href="/" target="_blank">andrew.plus</a>. This project uses <a href="https://github.com/Stuk/jszip" target="_blank">JSZip</a> (<a href="https://github.com/Stuk/jszip/blob/master/LICENSE.markdown" target="_blank">license</a>) and <a href="https://github.com/eligrey/FileSaver.js/" target="_blank">FileSaver</a> (<a href="https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md" target="_blank">license</a>). </p>
+		<p><a href="https://github.com/andrewplus/emtool">View repo</a></p>
 	</body>
 </html>
