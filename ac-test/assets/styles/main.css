@@ -1,0 +1,356 @@
+body, html {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ab6c2b;
+  background-image: url(../img/bg_pattern_diag.png);
+  background-size: 100px 100px;
+}
+
+/* General defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arvo', serif;
+  font-weight: bold;
+  color: #50493d;
+}
+
+h1 { font-size: 2.3em; }
+h2 { font-size: 2.1em; }
+h3 { font-size: 1.8em }
+h4 { font-size: 1.5em }
+h5 { font-size: 1.3em; }
+h6 { font-size: 1em; }
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1em;
+  color: #545454;
+  line-height: 1.5;
+}
+
+a {
+  color: #09c709;
+}
+
+a:hover:not(.btn)  {
+  opacity: 0.6;
+  transition: 300ms;
+}
+
+/* Main navigation */
+
+.nav-main {
+  position: relative;
+  box-sizing: border-box;
+  height: 18em;
+  box-shadow: inset 0px 0px 85px -17px rgba(0,0,0,0.24), 0px 0px 85px -17px rgba(0,0,0,0.70);
+  padding-top: 7em;
+
+  background-image: url(../img/green-triangles.png);
+  background-color: #10922a;
+  background-size: 150px 150px;
+
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+
+.logo {
+  display: block;
+  position: absolute;
+  bottom: 13px;
+  z-index: 100;
+  left: calc(50% - (379px / 2));
+}
+
+.nav-items {
+  width: 300px;
+  list-style-type: none;
+  position: absolute;
+  top: 8em;
+  height: 3em;
+  margin: 0;
+  padding: 0;
+  color: white;
+
+  font-family: 'Arvo', serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  text-shadow: 0 3px 2px rgba(0,0,0,0.3);
+}
+
+.nav-items li {
+  display: inline-block;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.nav-items li a {
+  color: white;
+  text-decoration: none;
+  transition: transform 300ms;
+}
+
+.nav-items li {
+  transition: transform 300ms;
+}
+
+.nav-items li:hover {
+  transform: translateY(-4px);
+}
+
+.nav-items li a:hover {
+  color: #ffd36f;
+  opacity: 1;
+}
+
+.nav-items.left {
+  left: 17%;
+  text-align: right;
+}
+
+.nav-items.right {
+  right: 17%;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+/* Main content */
+
+.wrapper:before { /* apples */
+  width: 100%;
+  height: 7em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  content: '';
+  z-index: 99;
+
+  background-image: url(../img/apples.png);
+  background-size: auto 7em;
+}
+
+.graphic-footer { /* graphic footer */
+  width: 100%;
+  height: 10em;
+  display: block;
+  margin-top: -10em;
+
+  background-image: url(../img/town-footer.png);
+  background-position-y: -10em;
+}
+
+.wrapper {
+  width: 70%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -18em;
+}
+
+.content-main {
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 20em;
+  padding-bottom: 11em;
+  box-shadow: 0px 0px 85px -17px rgba(0,0,0,0.37);
+
+  background-color: white;
+  background-image: url(../img/bg-tile.jpg);
+  background-size: 200px 200px;
+}
+
+/* Content areas */
+
+.area {
+  padding: 2em 3em;
+}
+
+.card {
+  width: calc(100% + 4em);
+  margin-left: -2em;
+  box-sizing: border-box;
+  padding: 4em 2em;
+  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.2);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.card:before {
+  content: '';
+  display: block;
+  width: 30%;
+  border-bottom: 3px dashed white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3em;
+  opacity: 0.7;
+}
+
+.card:after {
+  content: '';
+  display: block;
+  width: 30%;
+  border-bottom: 3px dashed white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  opacity: 0.7;
+}
+
+.card h1 { font-size: 3em; text-shadow: 0 3px 2px rgba(0,0,0,0.3); color: white; }
+.card h2 { font-size: 2.7em; text-shadow: 0 3px 2px rgba(0,0,0,0.3); color: white; }
+.card h3 { font-size: 2.2em; text-shadow: 0 3px 2px rgba(0,0,0,0.3); color: white; }
+.card h4 { font-size: 2em; text-shadow: 0 3px 2px rgba(0,0,0,0.3); color: white; }
+.card h5 { font-size: 1.5em; text-shadow: 0 3px 2px rgba(0,0,0,0.3); color: white; }
+.card h6 { font-size: 1.2em; text-shadow: 0 3px 2px rgba(0,0,0,0.3); color: white; }
+
+.card p { font-size: 1.2em; text-shadow: 0 3px 2px rgba(0,0,0,0.3); color: white; }
+.card a { color: white; }
+
+/* buttons */
+
+.btn {
+  background-color: #FDD10A;
+  color: #8B572A;
+  font-family: 'Arvo', serif;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 15px 45px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 3px 2px 0 rgba(0,0,0,0.3);
+  transition: 300ms;
+  user-select: none;
+}
+
+.card a.btn {
+  color: #8B572A;
+}
+
+.btn:hover {
+  background-color: #ffdc3c;
+}
+
+/* content area properties */
+
+.dotted {
+  background-image: url(../img/play-dots.png)
+}
+
+.text-center {
+  text-align: center;
+}
+
+.area.below-header {
+  padding-top: 0 !important;
+}
+
+.card.below-header {
+  padding-top: 19.5em;
+  margin-top: -18em;
+}
+
+.card-contained {
+  width: 100%;
+  margin-left: 0;
+}
+
+/* content area background colors */
+
+.bg-red {
+  background-color: #ec3523;
+  color: white;
+}
+
+.bg-orange {
+  background-color: orange;
+  color: white;
+}
+
+.bg-yellow {
+  background-color: #ecb312;
+  color: white;
+}
+
+.bg-green {
+  background-color: #18b757;
+  color: white;
+}
+
+.bg-purple {
+  background-color: #a53a6b;
+  color: white;
+}
+
+.bg-blue {
+  background-color: #6b84e0;
+  color: white;
+}
+
+
+
+
+/* MOBILE SITE */
+
+@media only screen and (max-width: 1500px) { /* responsive nav */
+	.nav-items.left { left: 8% } .nav-items.right { right: 8% }
+}
+
+@media only screen and (max-width: 1200px) {
+	.nav-items.left { left: 2% } .nav-items.right { right: 2% }
+}
+
+@media only screen and (min-width: 1960px) {
+	.nav-items.left { left: 25% } .nav-items.right { right: 25% }
+}
+
+@media only screen and (max-width: 1000px) {
+  .wrapper:before {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -17px;
+  }
+
+  .nav-items {
+    display: none;
+  }
+
+  .nav-main {
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    height: 8em;
+  }
+
+  .logo {
+    width: 115px;
+    height: 77px;
+    top: 8px;
+    left: calc(50% - 115px / 2);
+  }
+
+  .graphic-footer {
+    display: none;
+  }
+
+  .content-main {
+    padding-bottom: 3em;
+  }
+
+  .content-main, .card, .wrapper {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
