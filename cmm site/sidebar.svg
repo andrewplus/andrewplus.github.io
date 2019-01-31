@@ -1,0 +1,13 @@
+<svg width="39" height="362" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>sidebar</title>
+  <rect fill="none" id="canvas_background" height="364" width="41" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path transform="rotate(-9.948934555053711 -9.639825820922903,198.0643157958984) " d="m-26.906416,13.26539l34.533179,0l0,369.597839l-34.533179,0l0,-369.597839z" fill="#ab2437" id="ID0.3278909930959344"/>
+  <path transform="rotate(4.854856967926025 -2.416667938231412,180.64997863769526) " d="m-30.221438,-5.232379l52.059997,0l3.549545,371.764697l-55.609543,0l0,-371.764697z" stroke-linecap="round" fill="#e02e47" id="ID0.7314904178492725"/>
+  <path id="svg_1" d="m6.57318,139.292731" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="null" fill="#21D3C4"/>
+ </g>
+</svg>
