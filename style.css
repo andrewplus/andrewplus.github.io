@@ -39,10 +39,10 @@ li {
 /* really cool */
 
 .blink {
-    -webkit-animation: 1s linear infinite condemned_blink_effect; // for android
+    -webkit-animation: 1s linear infinite condemned_blink_effect; 
     animation: 1s linear infinite condemned_blink_effect;
 }
-@-webkit-keyframes condemned_blink_effect { // for android
+@-webkit-keyframes condemned_blink_effect { 
     0% {
         visibility: hidden;
     }
