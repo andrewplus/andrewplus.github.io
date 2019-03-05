@@ -1,4 +1,4 @@
-//delay 
+//delay
 var delay = ( function() {
     var timer = 0;
     return function(callback, ms) {
@@ -48,7 +48,7 @@ $( document ).ready(function() {
 });
 
 $( document ).ready(function() {
-	// go to main menu when channel is clicked
+  // go to main menu when channel is clicked
 	$( ".occupied .hover" ).click(function(){
 		var img = $( this ).attr( "data-img" );
 		$( ".splash-screen" ).css( {"background-image" : " url(" + img + ")"} );
@@ -61,9 +61,9 @@ $( document ).ready(function() {
 		$( "body" ).addClass( "channel-splash" );
 		delay(function(){
 			$( "body" ).removeClass( "splash-switch" );
-		}, 900 ); 
+		}, 900 );
 	});
-	
+
 	// back to main menu
 	$( ".menu-btn" ).click(function(){
 		$( ".main-menu" ).removeClass( "channel-splash" );
@@ -73,6 +73,11 @@ $( document ).ready(function() {
 		music.play();
 		delay(function(){
 			$( "body" ).removeClass( "splash-switch" );
-		}, 900 ); 
+		}, 900 );
+	});
+
+	// ignore screen warning
+	$( ".screen-message" ).click(function(){
+		$( ".screen-message" ).addClass( "hidden" );
 	});
 });
