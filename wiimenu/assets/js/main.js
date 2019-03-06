@@ -7,6 +7,16 @@ var delay = ( function() {
     };
 })();
 
+// distance between elements (center)
+function distanceBetween(elem1, elem2) {
+    var e1Rect = elem1.getBoundingClientRect();
+    var e2Rect = elem2.getBoundingClientRect();
+    var dx = (e1Rect.left+(e1Rect.right-e1Rect.left)/2) - (e2Rect.left+(e2Rect.right-e2Rect.left)/2);
+    var dy = (e1Rect.top+(e1Rect.bottom-e1Rect.top)/2) - (e2Rect.top+(e2Rect.bottom-e2Rect.top)/2);
+    var dist = Math.sqrt(dx * dx + dy * dy);
+    return dist;
+}
+
 // UI audio
 function hover(){
 	var audio = document.getElementById("hover");
@@ -50,12 +60,12 @@ $( document ).ready(function() {
 $( document ).ready(function() {
   // go to main menu when channel is clicked
 	$( ".occupied .hover" ).click(function(){
-		var img = $( this ).attr( "data-img" );
-		$( ".splash-screen" ).css( {"background-image" : " url(" + img + ")"} );
-
 		var centerX = $(this).offset().left + $(this).width() / 2;
 		var centerY = $(this).offset().top + $(this).height() / 2;
 		$( ".main-menu" ).css( {"transform-origin" : centerX + "px " + centerY + "px 0px"} );
+
+    var img = $( this ).attr( "data-img" );
+		$( ".splash-screen" ).css( {"background-image" : " url(" + img + ")", "transform-origin" : centerX + "px " + centerY + "px 0px"} );
 
 		$( ".main-menu" ).addClass( "channel-splash" );
 		$( "body" ).addClass( "channel-splash" );

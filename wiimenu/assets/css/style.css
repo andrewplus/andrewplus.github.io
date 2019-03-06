@@ -1,5 +1,11 @@
 /* main menu */
 
+.app {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
 body, html {
   margin: 0;
   overflow: hidden;
@@ -42,15 +48,9 @@ body.channel-splash {
 .top-section {
   height: calc(100% - 219px);
   padding: 80px;
-  padding-top: 2vh;
+  padding-top: 3vh;
   padding-bottom: 0;
   box-sizing: border-box;
-}
-
-@media only screen and (min-height: 780px)  {
-    .top-section {
-        padding-top: 3em !important;
-    }
 }
 
 .pages {
@@ -86,6 +86,8 @@ body.channel-splash {
   height: 11.1vw;
   margin-top: 2vh;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .channel-icon.blank {
@@ -496,16 +498,19 @@ body.channel-splash {
   }
 }
 
-@media only screen and (max-height: 640px) {
+@media only screen and (max-height: 826px) {
   .top-section {
-    padding-top: 0 !important;
+    padding-top: 1em !important;
   }
+}
 
+@media only screen and (max-height: 640px) {
   .channels {
     transform: scale(0.9);
   }
 }
 
+/*
 @media only screen and (max-height: 600px) {
   .channels {
     transform: scale(0.8);
@@ -517,5 +522,45 @@ body.channel-splash {
   .channels {
     transform: scale(0.7);
 		transform-origin: top;
+  }
+} */
+
+/* widescreen fixes */
+
+@media only screen and (min-width: 1720px) {
+  .top-section {
+    transform: scale(0.9);
+    padding-top: 0em !important;
+  }
+}
+
+/******************/
+/*    testing     */
+/* needs 2b moved */
+/******************/
+
+.channels {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 1920px) {
+  .channel-icon, .channel-icon *, .channel-icon:after, .channel-icon:before {
+    width: 387px !important;
+    height: 213px !important;
+  }
+}
+
+@media only screen and (max-height: 47vw) {
+  .channel-icon, .channel-icon *, .channel-icon:after, .channel-icon:before {
+    width: 40vh !important;
+    height: 22.5vh !important;
+    max-width: 439px !important;
+    max-height: 247px !important;
+  }
+
+  .channels-container {
+
   }
 }
