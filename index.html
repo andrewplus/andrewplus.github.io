@@ -1,60 +1,73 @@
 <!doctype html>
-<html>
-  <head>
-    <title>andrew's epic website</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="bagpipes.gif" type="image/gif">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
+<html lang="en" dir="ltr">
 
-  <body>
-    <div class="title">
-      <marquee><h1>Welcome to my web site!!!1</h1></marquee>
-    </div>
-    
-    <div class="content">
-      <img src="hi.png" class="hi">
-      <p>Hello! I'm a guy that uses the internet sometimes. Here, you'll find my social links and some little projects I've worked on. </p>
-    </div>
-    
-    <div class="content">
-      <img src="dance.gif" style="float:left">
-      <p class="blink" style="color:orange;font-size:23px;height:80px">Here are my social links</p>
-      
-      <ul style="text-align:center;">
-        <li class="item rainbow"><a href="http://twitter.com/andrewdotjpg">twitter</a></li>
-        <li class="item rainbow"><a href="http://tcrf.net/User:RampantLeaf">tcrf.net</a></li>
-        <li class="discord item rainbow rainbow rainbow"><span style="cursor:pointer;text-decoration:underline">discord</span> <span class="discordtag" style="display:none">RampantLeaf#7777</span></li>
-        <li class="item rainbow rainbow"><a href="https://www.youtube.com/channel/UCiPqP2cJ3gObJu6Uu-0wwQg">youtube</a></li>
-        <li class="item rainbow"><a href="https://community.wikia.com/wiki/User:Oswaldiscool">fandom</a></li>
-        <li class="item rainbow"><a href="https://github.com/andrewplus">github</a></li>
-      </ul>
-    </div>
-    
-    <div class="content">
-      <img src="bagpipes.gif" style="float:left;height:80px;">
-      <p class="blink" style="color:green;font-size:23px;height:80px">Here are some things I made</p>
-	  <p>Note: most of these were done for fun and aren't complete/polished</p>
-      
-      <ul style="">
-        <li class="item rainbow"><a href="/emtool">emtool</a> - a tool for generating cmdline.txt files for Epic Mickey</li>
-        <li class="item rainbow"><a href="https://wii.js.org/">wiimenu</a> - an experimental and incomplete recreation of the Wii Menu In HTML5</li>
-        <li class="item rainbow"><a href="https://epicmickeymodding.fandom.com/wiki/Epic_Mickey_Modding_Wiki">epicmickeymodding wiki</a> - WIP documentation on the inner workings of Epic Mickey</li>
-        <li class="item rainbow"><a href="/digicomics">digicomics</a> - an incomplete attempt at recreating the long-defunct Epic Mickey Digicomics iOS app</li>
-      </ul>
-    </div>
-    
-    <div class="eevee"></div>
-    
-    <center><img src="bestviewed.gif"></center>
-    
-    <script>
-      $(".discord").click(function() {
-        $(".discordtag").fadeToggle("slow");
-        console.log("yeet");
-      });
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="My bio, portfolio, contact info, and social links.">
+
+    <link rel="dns-prefetch" href="https://browser-update.org/">
+    <link id="favicon" rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+    <link rel="dns-prefetch" href="https://docs.google.com/">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- Preload loading image -->
+    <script>new Image().src = "images/loading.png";</script>
+    <!-- Browser support message -->
+    <script> 
+        var $buoop = {required:{e:12,f:67,o:59,s:10,c:74},insecure:true,api:2020.05,text:{'msg':'Your web browser ({brow_name}) is unsupported by this site.','msgmore':'This webpage may not display correctly and certain functionality may be missing.'}}; 
+        function $buo_f(){ 
+            var e = document.createElement("script"); 
+            e.src = "//browser-update.org/update.min.js"; 
+            document.body.appendChild(e);
+        };
+        try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+        catch(e){window.attachEvent("onload", $buo_f)}
     </script>
-  </body>
+
+    <title>Andrew Cole's Website</title>
+</head>
+
+<body>
+    <div class="click-mask" onclick="goTo('home')"></div>
+
+    <div class="wrapper">
+        <div class="name">ANDREW COLE</div>
+        <div class="tile size-baseline"></div>
+        <div class="tile about-me" data-tile-id="0" onclick="goTo('about-me')">
+            <img src="images/about-me.png" class="icon">
+            <span class="title">ABOUT ME</span>
+        </div>
+        <div class="tile portfolio" data-tile-id="1" onclick="goTo('portfolio')">
+            <img src="images/portfolio.png" class="icon">
+            <span class="title">PORTFOLIO</span>
+        </div>
+        <div class="tile share" data-tile-id="2" onclick="goTo('share')">
+            <img src="images/share.png" class="icon">
+            <span class="title" style="display:none">SHARE THIS SITE</span>
+        </div>
+        <div class="tile contact" data-tile-id="3" onclick="goTo('contact','https:\/\/docs.google.com/forms/d/e/1FAIpQLSfjZsMK5KoJPqKHpqld-brFnQ2CfdT2qAL9eL_Dvw6p8xOGdg/viewform?embedded=true')">
+            <img src="images/contact.png" class="icon">
+            <span class="title">CONTACT</span>
+        </div>
+        <div class="tile social" data-tile-id="4" onclick="goTo('social')">
+            <img src="images/social.png" class="icon">
+            <span class="title">SOCIAL</span>
+        </div>
+        <div class="tile github" data-tile-id="5" onclick="directLink('https:\/\/github.com/andrewplus')">
+            <img src="images/github.png" class="icon">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/viewport-units-buggyfill@0.6.2/viewport-units-buggyfill.min.js"></script>
+    <script>window.viewportUnitsBuggyfill.init();</script>
+    <script src="scripts/polyfills.js"></script>
+    <script src="scripts/home.js"></script>
+    <script src="scripts/goto.js"></script>
+</body>
+
 </html>

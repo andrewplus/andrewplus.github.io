@@ -1,0 +1,172 @@
+@mixin moveTile($left, $top) {
+    left: $left;
+    top: $top;
+}
+
+@mixin resizeTile($width, $height) {
+    width: $width;
+    padding-bottom: $height;
+}
+
+@mixin inactive() {
+    opacity: 0.5;
+}
+
+.open {
+    z-index: 9999;
+    cursor: default;
+    .icon { display: none }
+    .title { top: 0; display: block !important; }
+}
+
+.page {
+    width: 98%;
+    border: 0px;
+    position: absolute;
+    margin-left: calc(2% / 2);
+    top: 8%;
+    height: 91%;
+}
+
+// about me
+.wrapper.page-about-me {
+    .about-me {
+        @include resizeTile(80%, 52%);
+    }
+    .portfolio {
+        left: 92%;
+        @include inactive();
+    }
+    .share, .contact, .social, .github {
+        top: 86%;
+        @include inactive();
+    }
+}
+
+// portfolio
+.wrapper.page-portfolio {
+    .portfolio {
+        @include resizeTile(80%, 52%);
+        @include moveTile(10%, 14%);
+    }
+    .share, .contact, .social, .github {
+        top: 86%;
+        @include inactive();
+    }
+    .about-me {
+        left: -17%;
+        @include inactive();
+    }
+}
+
+// share
+.wrapper.page-share {
+    .share {
+        @include resizeTile(80%, 52%);
+        @include moveTile(10%, 14%);
+    }
+    .about-me {
+        top: -22%;
+        @include inactive();
+    }
+    .portfolio {
+        left: 92%;
+        @include inactive();
+    }
+    .contact {
+        left: 92%;
+        @include inactive();
+    }
+    .social {
+        left: 112%;
+        @include inactive();
+    }
+    .github {
+        left: 132%;
+        @include inactive();
+    }
+}
+
+// contact
+.wrapper.page-contact {
+    .contact {
+        @include resizeTile(80%, 52%);
+        @include moveTile(10%, 14%);
+    }
+    .share {
+        left: -2%;
+        @include inactive();
+    }
+    .about-me {
+        top: -22%;
+        @include inactive();
+    }
+    .portfolio {
+        top: -10%;
+        @include inactive();
+    }
+    .social {
+        left: 92%;
+        @include inactive();
+    }
+    .github {
+        left: 112%;
+        @include inactive();
+    }
+}
+
+// social
+.wrapper.page-social {
+    .social {
+        @include resizeTile(80%, 52%);
+        @include moveTile(10%, 14%);
+    }
+    .about-me {
+        left: -17%;
+        @include inactive();
+    }
+    .portfolio {
+        top: -10%;
+        @include inactive();
+    }
+    .contact {
+        left: -10%;
+        @include inactive();
+    }
+    .share {
+        left: -22%;
+        @include inactive();
+    }
+    .github {
+        left: 92%;
+        @include inactive();
+    }
+}
+
+// github
+.wrapper.page-github {
+    .github {
+        @include resizeTile(80%, 52%);
+        @include moveTile(10%, 14%);
+    }
+    .portfolio {
+        top: -10%;
+        @include inactive();
+    }
+    .social {
+        left: -10%;
+        @include inactive();
+    }
+    .contact {
+        left: -30%;
+        @include inactive();
+    }
+    .share {
+        left: -42%;
+        @include inactive();
+    }
+    .about-me {
+        left: -17%;
+        @include inactive();
+    }
+}

@@ -1,0 +1,101 @@
+.tile {
+    position: absolute;
+    display: block;
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(3vh);
+    transition: 250ms cubic-bezier(0.25, 0.1, 0.21, 2.15);
+    cursor: pointer;
+
+    .icon {
+        width: 50%;
+        height: auto;
+        margin: auto;
+        max-width: 256px;
+    }
+
+    .title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: block;
+        padding: 0.7vw;
+        color: white;
+        letter-spacing: 8px;
+        font-size: 1.5em;
+    }
+}
+
+.tile.animated-in {
+    transform: translateY(0vh);
+    opacity: 1;
+}
+
+.wrapper:not(.in-page) .tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0.5vw 0.8vw 19px -12px rgba(0,0,0,0.2) !important;
+}
+
+.wrapper.in-page .tile {
+    transition: 250ms;
+}
+
+.tile.size-baseline {
+    visibility: hidden;
+    opacity: 0;
+    width: 25%;
+}
+
+@mixin tile($background-1, $background-2, $gradient-angle, $width, $height, $left, $top) {
+    background: linear-gradient($gradient-angle, $background-1 0%, $background-2 100%);
+    width: $width;
+    padding-bottom: $height;
+    left: $left;
+    top: $top;
+    box-shadow: 0.5vw 0.5vw 19px -12px rgba(0,0,0,0.2);
+}
+
+.tile.about-me {
+    @include tile(#ffa2c4, #fb867b, 180deg, 25%, 25%, 10%, 14%);
+    .icon {
+        margin-top: 18%;
+    }
+}
+
+.tile.portfolio {
+    @include tile(#f3cc85, #f3ee88, 45deg, 53%, 16%, 37%, 26%);
+    .icon {
+        margin-top: 5%;
+        width: 16%;
+    }
+}
+
+.tile.share {
+    @include tile(#c2afe2, #96ded4, 145deg, 10%, 10%, 15%, 50%);
+    .icon {
+        margin-top: 25%;
+    }
+}
+
+.tile.contact {
+    @include tile(#8defb7, #87e5ee, 45deg, 18%, 18%, 27%, 50%);
+    .icon {
+        margin-top: 16%;
+    }
+}
+
+.tile.social {
+    @include tile(#f5bfff, #f5c8b8, 0deg, 18%, 28%, 47%, 50%);
+    .icon {
+        margin-top: 42%;
+    }
+}
+
+.tile.github {
+    @include tile(#fde8c2, #ffb1b1, 45deg, 12%, 12%, 67%, 50%);
+    .icon {
+        margin-top: 25%;
+    }
+}
