@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Epic Mickey Config Editor</title>
+    <title>EMConfig - Epic Mickey Config Editor</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -21,13 +21,18 @@
         window.onerror = function() { // surpress IE popup errors in desktop
             return true;
         };
-        const PLATFORM = NL_OS === undefined ? "web" : "desktop"; // change this depending on version
+        if (typeof NL_OS === 'undefined') {
+            var PLATFORM = "web";
+        } else {
+            var PLATFORM = "desktop";
+        }
+        //var PLATFORM = typeof NL_OS === "undefined" ? "web" : "desktop"; // change this depending on version
         document.body.classList.add(PLATFORM);
     </script>
 
     <!-- Main App -->
     <main class="text-center">
-        <h1>Epic Mickey Config Editor (beta)</h1>
+        <h1>Epic Mickey Config Editor</h1>
         <p>To generate a custom configuration file for Epic Mickey, simply change the options below.</p>
 
         <div class="editor">
